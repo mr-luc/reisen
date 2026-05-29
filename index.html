@@ -18,32 +18,24 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:"Spectral",Georgia,serif;background:var(--parchment);color:var(--ink);
-    line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  body{font-family:"Spectral",Georgia,serif;background:var(--parchment);color:var(--ink);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
   body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.4;
-    background-image:radial-gradient(circle at 20% 30%,rgba(0,0,0,.015) 0,transparent 50%),
-                     radial-gradient(circle at 80% 70%,rgba(0,0,0,.02) 0,transparent 50%)}
+    background-image:radial-gradient(circle at 20% 30%,rgba(0,0,0,.015) 0,transparent 50%),radial-gradient(circle at 80% 70%,rgba(0,0,0,.02) 0,transparent 50%)}
   h1,h2,h3,.display{font-family:"Fraunces",serif}
   ::selection{background:var(--terra);color:var(--parchment)}
   .wrap{max-width:1080px;margin:0 auto;padding:0 26px;position:relative;z-index:2}
 
-  /* HERO */
-  header.hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;
-    padding:0 0 56px;color:#fff;overflow:hidden;
-    background:linear-gradient(180deg,rgba(20,40,38,.15),rgba(20,40,38,.55) 60%,rgba(31,74,69,.92)),
-               linear-gradient(135deg,#26544f,#2f8a7e 55%,#9fc0b2);
-    background-size:cover;background-position:center}
-  header.hero .heroimg{position:absolute;inset:0;z-index:0;object-fit:cover;width:100%;height:100%}
-  header.hero .heroshade{position:absolute;inset:0;z-index:1;
-    background:linear-gradient(180deg,rgba(20,40,38,.10),rgba(20,40,38,.45) 55%,rgba(28,55,50,.92))}
-  header.hero .wrap{z-index:2}
+  header.hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;padding:0 0 56px;color:#fff;overflow:hidden;background:#26544f}
+  header.hero .herobg{position:absolute;inset:0;z-index:0;width:100%;height:100%}
+  header.hero .herophoto{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover}
+  header.hero .heroshade{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(20,40,38,.05),rgba(20,40,38,.4) 55%,rgba(24,48,44,.9))}
+  header.hero .wrap{z-index:3}
   .hero-eyebrow{font-style:italic;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;opacity:.92;margin-bottom:14px}
   .hero h1{font-size:clamp(3rem,11vw,7rem);font-weight:900;line-height:.9;letter-spacing:-.02em;text-shadow:0 2px 40px rgba(0,0,0,.4)}
   .hero h1 .sub{display:block;font-size:clamp(1rem,3.2vw,1.6rem);font-weight:400;font-style:italic;margin-top:14px;opacity:.96;text-shadow:0 1px 12px rgba(0,0,0,.5)}
   .hero-lead{max-width:560px;margin-top:22px;font-size:1.08rem;opacity:.97;text-shadow:0 1px 10px rgba(0,0,0,.4)}
   .factbar{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
-  .fact{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(4px);
-    border-radius:2px;padding:10px 16px}
+  .fact{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(4px);border-radius:2px;padding:10px 16px}
   .fact b{font-family:"Fraunces";font-weight:600;display:block;font-size:1.25rem;line-height:1}
   .fact span{font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;opacity:.88}
 
@@ -52,7 +44,6 @@
   .section-title{font-size:clamp(1.9rem,5vw,2.9rem);font-weight:900;line-height:1.05}
   .section-intro{max-width:640px;margin-top:14px;color:var(--ink-soft);font-size:1.05rem}
 
-  /* RIVER MAP */
   .river-wrap{margin-top:38px;display:grid;grid-template-columns:1.05fr 1fr;gap:36px;align-items:start}
   .river-svg{width:100%;height:auto;display:block;filter:drop-shadow(0 10px 22px var(--shadow))}
   .river-svg .stop{cursor:pointer}
@@ -65,32 +56,27 @@
   .flow{stroke-dasharray:5 16;animation:flow 2.6s linear infinite}
   @keyframes flow{to{stroke-dashoffset:-42}}
 
-  .stop-card{background:var(--parchment-2);border:1px solid var(--line);border-radius:4px;
-    padding:0 0 26px;overflow:hidden;position:sticky;top:20px;box-shadow:0 8px 20px var(--shadow)}
+  .stop-card{background:var(--parchment-2);border:1px solid var(--line);border-radius:4px;padding:0 0 26px;overflow:hidden;position:sticky;top:20px;box-shadow:0 8px 20px var(--shadow)}
   .stop-card .sc-pad{padding:0 26px}
-  .stop-card .badge{display:inline-block;background:var(--jade);color:#fff;font-size:.7rem;
-    letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:2px;margin:22px 0 14px}
+  .stop-card .sc-media{height:128px;position:relative;overflow:hidden}
+  .stop-card .badge{display:inline-block;background:var(--jade);color:#fff;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:2px;margin:20px 0 14px}
   .stop-card h3{font-size:1.7rem;font-weight:600;line-height:1.05;margin-bottom:4px}
   .stop-card .km{font-style:italic;color:var(--terra);font-size:.95rem;margin-bottom:14px}
   .stop-card p{color:var(--ink-soft);font-size:1.02rem}
   .stop-hint{margin-top:18px;font-size:.82rem;font-style:italic;color:var(--ink-soft);opacity:.8}
 
-  /* HIGHLIGHT CARDS */
   .filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
-  .filter-btn{font-family:"Spectral";font-size:.92rem;background:transparent;border:1.5px solid var(--line);
-    color:var(--ink-soft);padding:8px 18px;border-radius:30px;cursor:pointer;transition:all .18s}
+  .filter-btn{font-family:"Spectral";font-size:.92rem;background:transparent;border:1.5px solid var(--line);color:var(--ink-soft);padding:8px 18px;border-radius:30px;cursor:pointer;transition:all .18s}
   .filter-btn:hover{border-color:var(--terra);color:var(--terra)}
   .filter-btn.active{background:var(--ink);border-color:var(--ink);color:var(--parchment)}
   .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;margin-top:30px}
-  .card{background:#fdfaf3;border:1px solid var(--line);border-radius:5px;overflow:hidden;display:flex;flex-direction:column;
-    transition:transform .25s,box-shadow .25s;box-shadow:0 3px 10px rgba(42,32,24,.07)}
+  .card{background:#fdfaf3;border:1px solid var(--line);border-radius:5px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;box-shadow:0 3px 10px rgba(42,32,24,.07)}
   .card:hover{transform:translateY(-4px);box-shadow:0 16px 30px var(--shadow)}
-  .card-media{height:178px;position:relative;overflow:hidden;
-    background:linear-gradient(135deg,var(--c),#2a2018)}
-  .card-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
-  .card:hover .card-media img{transform:scale(1.06)}
-  .card-media .ph{position:absolute;inset:0;display:flex;align-items:flex-end;padding:16px;
-    font-family:"Fraunces";font-weight:900;color:rgba(255,255,255,.9);font-size:1.5rem;letter-spacing:.02em}
+  .card-media{height:170px;position:relative;overflow:hidden}
+  .card-media .scene,.stop-card .scene{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:0}
+  .card-media .photo,.stop-card .photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1}
+  .card-media::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,transparent 50%,rgba(20,22,16,.5))}
+  .card-media .ph{position:absolute;left:16px;bottom:13px;z-index:3;font-family:"Fraunces";font-weight:900;color:#fff;font-size:1.5rem;letter-spacing:.02em;text-shadow:0 1px 8px rgba(0,0,0,.55)}
   .card-body{padding:20px 22px 24px}
   .card .tag{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--c)}
   .card h3{font-size:1.4rem;font-weight:600;margin:6px 0 8px;line-height:1.1}
@@ -98,19 +84,16 @@
   .card .meta{margin-top:14px;font-style:italic;font-size:.85rem;color:var(--terra)}
   .cat-natur{--c:var(--olive)} .cat-dorf{--c:var(--terra)} .cat-wein{--c:var(--ochre)} .cat-wasser{--c:var(--jade)}
 
-  /* ACTIVITIES */
   .act-section{background:linear-gradient(180deg,#26544f,#1f4a45);color:var(--parchment)}
   .act-section .kicker{color:var(--ochre)}
   .act-section .section-intro{color:rgba(245,237,223,.85)}
-  .acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;margin-top:34px;
-    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12)}
+  .acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;margin-top:34px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12)}
   .act{background:#26544f;padding:26px 22px;transition:background .2s}
   .act:hover{background:#2f6a62}
   .act .ico{font-family:"Fraunces";font-size:2rem;font-weight:900;color:var(--ochre);line-height:1}
   .act h3{font-size:1.25rem;font-weight:600;margin:12px 0 8px}
   .act p{font-size:.95rem;color:rgba(245,237,223,.82)}
 
-  /* SEASONS */
   .seasons{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:32px}
   .season{border:1px solid var(--line);border-radius:5px;padding:22px;background:#fdfaf3}
   .season .mon{font-style:italic;color:var(--terra);font-size:.85rem;letter-spacing:.05em}
@@ -118,11 +101,9 @@
   .season p{font-size:.95rem;color:var(--ink-soft)}
   .season .rating{margin-top:12px;font-size:.8rem;color:var(--olive);font-weight:600}
 
-  /* ACCORDION */
   .acc{margin-top:30px;border-top:1px solid var(--line)}
   .acc-item{border-bottom:1px solid var(--line)}
-  .acc-head{width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:"Fraunces";
-    font-size:1.25rem;font-weight:600;color:var(--ink);padding:20px 4px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+  .acc-head{width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:"Fraunces";font-size:1.25rem;font-weight:600;color:var(--ink);padding:20px 4px;display:flex;justify-content:space-between;align-items:center;gap:14px}
   .acc-head:hover{color:var(--terra)}
   .acc-head .pm{font-size:1.6rem;color:var(--terra);transition:transform .25s;line-height:1}
   .acc-item.open .pm{transform:rotate(45deg)}
@@ -138,20 +119,31 @@
 
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
   .reveal.in{opacity:1;transform:none}
-
-  @media(max-width:760px){
-    .river-wrap{grid-template-columns:1fr}
-    .stop-card{position:relative;top:0}
-    header.hero{min-height:72vh}
-  }
+  @media(max-width:760px){.river-wrap{grid-template-columns:1fr}.stop-card{position:relative;top:0}header.hero{min-height:72vh}}
 </style>
 </head>
 <body>
 
 <header class="hero">
-  <img class="heroimg" alt="Roquebrun und der Fluss Orb" loading="eager"
-       src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Roquebrun_and_Orb_River_cf02.jpg/1600px-Roquebrun_and_Orb_River_cf02.jpg"
-       onerror="this.remove()">
+  <svg class="herobg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="hsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a9c7c2"/><stop offset="1" stop-color="#dfe7d8"/></linearGradient>
+      <linearGradient id="hriver" x1="0" y1="0" x2="0.6" y2="1"><stop offset="0" stop-color="#7b8a4f"/><stop offset="0.5" stop-color="#2f8a7e"/><stop offset="1" stop-color="#2c6f86"/></linearGradient>
+    </defs>
+    <rect width="1200" height="600" fill="url(#hsky)"/>
+    <circle cx="940" cy="120" r="58" fill="#f0c860" opacity=".9"/>
+    <path d="M0,250 L150,120 L280,230 L430,90 L580,230 L720,140 L880,250 L1040,160 L1200,250 L1200,330 L0,330 Z" fill="#9fb19a" opacity=".6"/>
+    <path d="M0,300 L160,190 L320,290 L470,170 L640,300 L800,210 L980,300 L1130,230 L1200,290 L1200,360 L0,360 Z" fill="#7e9277" opacity=".6"/>
+    <path d="M0,380 Q300,330 600,380 T1200,370 L1200,600 L0,600 Z" fill="#84934f"/>
+    <path d="M0,470 Q300,430 620,475 T1200,465 L1200,600 L0,600 Z" fill="#6f7e44"/>
+    <path d="M200,330 C150,400 300,430 250,500 C210,560 360,560 330,600 L470,600 C430,560 520,540 470,495 C430,455 540,420 470,330 Z" fill="url(#hriver)" opacity=".95"/>
+    <rect x="0" y="560" width="1200" height="60" fill="#2c6f86" opacity=".55"/>
+    <g fill="#bd6a3a" stroke="#8a4a26" stroke-width="2" opacity=".9">
+      <g transform="translate(560,430)"><rect x="0" y="0" width="26" height="22"/><polygon points="0,0 13,-14 26,0" fill="#9a3d1f"/></g>
+      <g transform="translate(600,438)"><rect x="0" y="0" width="20" height="16"/><polygon points="0,0 10,-12 20,0" fill="#9a3d1f"/></g>
+    </g>
+  </svg>
+  <img class="herophoto" alt="Roquebrun am Orb" src="https://commons.wikimedia.org/wiki/Special:FilePath/Roquebrun%20and%20Orb%20River%20cf02.jpg?width=1600" onerror="this.remove()">
   <div class="heroshade"></div>
   <div class="wrap">
     <div class="hero-eyebrow">Reiseführer · Hérault · Okzitanien</div>
@@ -166,7 +158,6 @@
   </div>
 </header>
 
-<!-- RIVER COURSE -->
 <section id="verlauf">
   <div class="wrap">
     <div class="reveal">
@@ -174,102 +165,44 @@
       <h2 class="section-title">Der Flusslauf, Station für Station</h2>
       <p class="section-intro">Tippe auf eine Station — von der Quelle in den Monts d'Orb bis zur Mündung. Der Oberlauf ist wild und schiefergrau, das mittlere Tal mediterran-sanft, das Unterland Wein und Stadt.</p>
     </div>
-
     <div class="river-wrap reveal">
       <svg class="river-svg" viewBox="0 0 460 640" xmlns="http://www.w3.org/2000/svg" aria-label="Illustrierte Karte des Orb-Flusslaufs">
         <defs>
-          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#e8ddc6"/><stop offset="1" stop-color="#f5eddf"/>
-          </linearGradient>
-          <linearGradient id="riverGrad" x1="0" y1="0" x2="0.6" y2="1">
-            <stop offset="0" stop-color="#7b8a4f"/><stop offset="0.45" stop-color="#2f8a7e"/><stop offset="1" stop-color="#2c6f86"/>
-          </linearGradient>
-          <linearGradient id="seaGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#3f86a0"/><stop offset="1" stop-color="#2c6f86"/>
-          </linearGradient>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8ddc6"/><stop offset="1" stop-color="#f5eddf"/></linearGradient>
+          <linearGradient id="riverGrad" x1="0" y1="0" x2="0.6" y2="1"><stop offset="0" stop-color="#7b8a4f"/><stop offset="0.45" stop-color="#2f8a7e"/><stop offset="1" stop-color="#2c6f86"/></linearGradient>
+          <linearGradient id="seaGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3f86a0"/><stop offset="1" stop-color="#2c6f86"/></linearGradient>
         </defs>
-
         <rect x="0" y="0" width="460" height="640" fill="url(#sky)"/>
-
-        <!-- mountain ranges (Massif Central / Cevennes) -->
         <path d="M0,150 L70,60 L120,120 L175,40 L240,120 L300,70 L360,130 L430,80 L460,120 L460,200 L0,200 Z" fill="#cdbb9c" opacity=".55"/>
         <path d="M0,180 L60,110 L130,165 L200,95 L270,160 L340,110 L410,165 L460,130 L460,230 L0,230 Z" fill="#b9a784" opacity=".5"/>
-        <!-- snow/highland hints -->
         <path d="M70,60 L58,78 L82,78 Z M175,40 L162,62 L190,62 Z M300,70 L289,86 L312,86 Z" fill="#efe7d6" opacity=".8"/>
-
-        <!-- rolling hills lower valley -->
         <path d="M0,470 q70,-46 150,-12 t150,-8 160,16 L460,640 L0,640 Z" fill="#aeb87d" opacity=".35"/>
         <path d="M0,540 q90,-30 180,-2 t170,4 110,8 L460,640 L0,640 Z" fill="#9aa86a" opacity=".4"/>
-
-        <!-- sea at the mouth -->
         <path d="M300,612 q14,-12 28,0 t28,0 28,0 28,0 20,0 L460,640 L300,640 Z" fill="url(#seaGrad)" opacity=".9"/>
-        <g stroke="#ffffff" stroke-width="1.4" opacity=".5" fill="none">
-          <path d="M312,624 q9,-7 18,0 t18,0"/><path d="M360,630 q9,-7 18,0 t18,0"/>
-        </g>
+        <g stroke="#ffffff" stroke-width="1.4" opacity=".5" fill="none"><path d="M312,624 q9,-7 18,0 t18,0"/><path d="M360,630 q9,-7 18,0 t18,0"/></g>
         <circle cx="420" cy="600" r="13" fill="#e9b44a" opacity=".85"/>
-
-        <!-- river: valley underlay + main stroke + animated flow -->
-        <path d="M90,70 C70,120 130,150 120,200 C112,245 175,260 170,310 C166,355 120,375 145,420 C168,460 250,452 270,500 C288,540 345,545 360,600"
-              fill="none" stroke="#bcd0c2" stroke-width="14" stroke-linecap="round" opacity=".55"/>
-        <path id="riverMain" d="M90,70 C70,120 130,150 120,200 C112,245 175,260 170,310 C166,355 120,375 145,420 C168,460 250,452 270,500 C288,540 345,545 360,600"
-              fill="none" stroke="url(#riverGrad)" stroke-width="7.5" stroke-linecap="round"/>
-        <path class="flow" d="M90,70 C70,120 130,150 120,200 C112,245 175,260 170,310 C166,355 120,375 145,420 C168,460 250,452 270,500 C288,540 345,545 360,600"
-              fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity=".55"/>
-
-        <!-- little village clusters -->
+        <path d="M90,70 C70,120 130,150 120,200 C112,245 175,260 170,310 C166,355 120,375 145,420 C168,460 250,452 270,500 C288,540 345,545 360,600" fill="none" stroke="#bcd0c2" stroke-width="14" stroke-linecap="round" opacity=".55"/>
+        <path d="M90,70 C70,120 130,150 120,200 C112,245 175,260 170,310 C166,355 120,375 145,420 C168,460 250,452 270,500 C288,540 345,545 360,600" fill="none" stroke="url(#riverGrad)" stroke-width="7.5" stroke-linecap="round"/>
+        <path class="flow" d="M90,70 C70,120 130,150 120,200 C112,245 175,260 170,310 C166,355 120,375 145,420 C168,460 250,452 270,500 C288,540 345,545 360,600" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity=".55"/>
         <g fill="#c98a5e" stroke="#8a5a36" stroke-width=".8">
           <g transform="translate(178,300)"><rect x="0" y="0" width="7" height="6"/><rect x="8" y="-2" width="6" height="8"/><polygon points="0,0 3.5,-4 7,0" fill="#9a3d1f"/><polygon points="8,-2 11,-6 14,-2" fill="#9a3d1f"/></g>
           <g transform="translate(120,418)"><rect x="0" y="0" width="7" height="6"/><rect x="8" y="-1" width="6" height="7"/><polygon points="0,0 3.5,-4 7,0" fill="#9a3d1f"/><polygon points="8,-1 11,-5 14,-1" fill="#9a3d1f"/></g>
           <g transform="translate(278,492)"><rect x="0" y="0" width="7" height="6"/><rect x="8" y="-1" width="6" height="7"/><polygon points="0,0 3.5,-4 7,0" fill="#9a3d1f"/><polygon points="8,-1 11,-5 14,-1" fill="#9a3d1f"/></g>
         </g>
-        <!-- Béziers cathedral hint -->
-        <g transform="translate(372,560)" fill="#b58a63" stroke="#7d5436" stroke-width=".8">
-          <rect x="0" y="0" width="14" height="12"/><rect x="-5" y="3" width="5" height="9"/><polygon points="0,0 7,-9 14,0" fill="#9a3d1f"/>
-        </g>
-        <!-- trees -->
-        <g fill="#6f7e44">
-          <circle cx="60" cy="250" r="6"/><circle cx="210" cy="360" r="6"/><circle cx="95" cy="350" r="5"/><circle cx="230" cy="470" r="6"/><circle cx="320" cy="520" r="5"/>
-        </g>
-
-        <!-- STOPS -->
-        <g class="stop active" data-key="quelle" tabindex="0">
-          <circle class="ring" cx="90" cy="70" r="16" fill="none" stroke="#bd4f2a" stroke-width="2"/>
-          <circle class="dot" cx="90" cy="70" r="7.5" fill="#84934f" stroke="#fff" stroke-width="2"/>
-          <text class="lbl" x="104" y="66">Quelle · Monts d'Orb</text>
-        </g>
-        <g class="stop" data-key="bedarieux" tabindex="0">
-          <circle class="ring" cx="120" cy="200" r="16" fill="none" stroke="#bd4f2a" stroke-width="2"/>
-          <circle class="dot" cx="120" cy="200" r="7.5" fill="#2f8a7e" stroke="#fff" stroke-width="2"/>
-          <text class="lbl" x="134" y="196">Bédarieux &amp; Lunas</text>
-        </g>
-        <g class="stop" data-key="olargues" tabindex="0">
-          <circle class="ring" cx="170" cy="310" r="16" fill="none" stroke="#bd4f2a" stroke-width="2"/>
-          <circle class="dot" cx="170" cy="310" r="7.5" fill="#2f8a7e" stroke="#fff" stroke-width="2"/>
-          <text class="lbl" x="184" y="306">Olargues &amp; Caroux</text>
-        </g>
-        <g class="stop" data-key="roquebrun" tabindex="0">
-          <circle class="ring" cx="145" cy="420" r="16" fill="none" stroke="#bd4f2a" stroke-width="2"/>
-          <circle class="dot" cx="145" cy="420" r="7.5" fill="#2f8a7e" stroke="#fff" stroke-width="2"/>
-          <text class="lbl" x="159" y="416">Roquebrun</text>
-        </g>
-        <g class="stop" data-key="cessenon" tabindex="0">
-          <circle class="ring" cx="270" cy="500" r="16" fill="none" stroke="#bd4f2a" stroke-width="2"/>
-          <circle class="dot" cx="270" cy="500" r="7.5" fill="#2f8a7e" stroke="#fff" stroke-width="2"/>
-          <text class="lbl" x="284" y="496">Cessenon-sur-Orb</text>
-        </g>
-        <g class="stop" data-key="beziers" tabindex="0">
-          <circle class="ring" cx="360" cy="600" r="16" fill="none" stroke="#bd4f2a" stroke-width="2"/>
-          <circle class="dot" cx="360" cy="600" r="7.5" fill="#2c6f86" stroke="#fff" stroke-width="2"/>
-          <text class="lbl" x="346" y="596" text-anchor="end">Béziers · Mündung</text>
-        </g>
+        <g transform="translate(372,560)" fill="#b58a63" stroke="#7d5436" stroke-width=".8"><rect x="0" y="0" width="14" height="12"/><rect x="-5" y="3" width="5" height="9"/><polygon points="0,0 7,-9 14,0" fill="#9a3d1f"/></g>
+        <g fill="#6f7e44"><circle cx="60" cy="250" r="6"/><circle cx="210" cy="360" r="6"/><circle cx="95" cy="350" r="5"/><circle cx="230" cy="470" r="6"/><circle cx="320" cy="520" r="5"/></g>
+        <g class="stop active" data-key="quelle" tabindex="0"><circle class="ring" cx="90" cy="70" r="16" fill="none" stroke="#bd4f2a" stroke-width="2"/><circle class="dot" cx="90" cy="70" r="7.5" fill="#84934f" stroke="#fff" stroke-width="2"/><text class="lbl" x="104" y="66">Quelle · Monts d'Orb</text></g>
+        <g class="stop" data-key="bedarieux" tabindex="0"><circle class="ring" cx="120" cy="200" r="16" fill="none" stroke="#bd4f2a" stroke-width="2"/><circle class="dot" cx="120" cy="200" r="7.5" fill="#2f8a7e" stroke="#fff" stroke-width="2"/><text class="lbl" x="134" y="196">Bédarieux &amp; Lunas</text></g>
+        <g class="stop" data-key="olargues" tabindex="0"><circle class="ring" cx="170" cy="310" r="16" fill="none" stroke="#bd4f2a" stroke-width="2"/><circle class="dot" cx="170" cy="310" r="7.5" fill="#2f8a7e" stroke="#fff" stroke-width="2"/><text class="lbl" x="184" y="306">Olargues &amp; Caroux</text></g>
+        <g class="stop" data-key="roquebrun" tabindex="0"><circle class="ring" cx="145" cy="420" r="16" fill="none" stroke="#bd4f2a" stroke-width="2"/><circle class="dot" cx="145" cy="420" r="7.5" fill="#2f8a7e" stroke="#fff" stroke-width="2"/><text class="lbl" x="159" y="416">Roquebrun</text></g>
+        <g class="stop" data-key="cessenon" tabindex="0"><circle class="ring" cx="270" cy="500" r="16" fill="none" stroke="#bd4f2a" stroke-width="2"/><circle class="dot" cx="270" cy="500" r="7.5" fill="#2f8a7e" stroke="#fff" stroke-width="2"/><text class="lbl" x="284" y="496">Cessenon-sur-Orb</text></g>
+        <g class="stop" data-key="beziers" tabindex="0"><circle class="ring" cx="360" cy="600" r="16" fill="none" stroke="#bd4f2a" stroke-width="2"/><circle class="dot" cx="360" cy="600" r="7.5" fill="#2c6f86" stroke="#fff" stroke-width="2"/><text class="lbl" x="346" y="596" text-anchor="end">Béziers · Mündung</text></g>
       </svg>
-
       <div class="stop-card" id="stopCard"></div>
     </div>
   </div>
 </section>
 
-<!-- HIGHLIGHTS -->
 <section id="highlights" style="background:var(--parchment-2)">
   <div class="wrap">
     <div class="reveal">
@@ -288,14 +221,10 @@
   </div>
 </section>
 
-<!-- ACTIVITIES -->
 <section class="act-section" id="aktiv">
   <div class="wrap">
-    <div class="reveal">
-      <div class="kicker">Raus ans Wasser</div>
-      <h2 class="section-title">Aktiv im Tal</h2>
-      <p class="section-intro">Der Orb gilt unter Kanuten als launisch — nach der Schneeschmelze kann er kräftig anschwellen, im Sommer plätschert er gemächlich dahin.</p>
-    </div>
+    <div class="reveal"><div class="kicker">Raus ans Wasser</div><h2 class="section-title">Aktiv im Tal</h2>
+      <p class="section-intro">Der Orb gilt unter Kanuten als launisch — nach der Schneeschmelze kann er kräftig anschwellen, im Sommer plätschert er gemächlich dahin.</p></div>
     <div class="acts reveal">
       <div class="act"><div class="ico">↯</div><h3>Kanu &amp; Kajak</h3><p>Klassische Tour bei Roquebrun. Im Frühjahr Wildwasser, im Sommer ein gemütlicher Paddel-Picknick-Tag.</p></div>
       <div class="act"><div class="ico">△</div><h3>Gorges d'Héric</h3><p>Spektakuläre Granitschlucht im Caroux. Nur zu Fuß (Autos verboten), ca. 3&nbsp;Std. hin &amp; zurück, mit Badegumpen.</p></div>
@@ -305,7 +234,6 @@
   </div>
 </section>
 
-<!-- SEASONS -->
 <section id="reisezeit">
   <div class="wrap">
     <div class="reveal"><div class="kicker">Wann kommen?</div><h2 class="section-title">Die beste Reisezeit</h2></div>
@@ -318,7 +246,6 @@
   </div>
 </section>
 
-<!-- PRACTICAL -->
 <section id="praxis" style="background:var(--parchment-2)">
   <div class="wrap">
     <div class="reveal"><div class="kicker">Gut zu wissen</div><h2 class="section-title">Praktische Tipps</h2></div>
@@ -329,32 +256,28 @@
           <li><strong>Panoramastraße:</strong> Die <strong>D14</strong> von Béziers Richtung Olargues folgt dem wildromantischen Tal — das landschaftliche Herzstück.</li>
           <li><strong>Flughäfen:</strong> Béziers-Cap d'Agde, Montpellier und Carcassonne sind alle gut erreichbar.</li>
           <li>Im engen Mittel- und Oberlauf ist ein Auto faktisch Pflicht; der ÖPNV ist dünn.</li>
-        </ul></div></div>
-      </div>
+        </ul></div></div></div>
       <div class="acc-item"><button class="acc-head">Baden — sicher unterwegs<span class="pm">+</span></button>
         <div class="acc-body"><div class="inner"><ul>
           <li>In den Gorges d'Héric ist die <strong>Badestelle nicht überwacht</strong> — Tiefe und Strömung selbst einschätzen.</li>
           <li>Nach Regen oder im Frühjahr kann der Pegel rasch steigen; der Orb gilt als „launisch".</li>
           <li>Schluchten-Wasser bleibt auch im Sommer kühl — Aufwärmpausen einplanen.</li>
           <li>Feste Badeschuhe wegen rutschiger Schiefer- und Granitfelsen.</li>
-        </ul></div></div>
-      </div>
+        </ul></div></div></div>
       <div class="acc-item"><button class="acc-head">Essen, Wein &amp; Genuss<span class="pm">+</span></button>
         <div class="acc-body"><div class="inner"><ul>
           <li><strong>Saint-Chinian (AOC)</strong> und der <strong>IGP Haute Vallée de l'Orb</strong> prägen die Weine; auf Schiefer wachsen die feinen Roquebrun- und Berlou-Cuvées.</li>
           <li><strong>Château de Lunas:</strong> Feinschmecker-Restaurant direkt am jadefarbenen Fluss, nahe Lodève.</li>
           <li>Kirschen &amp; Esskastanien sind typisch für das Jaur-/Orb-Tal — saisonal an Ständen.</li>
           <li>In Béziers lohnen die <strong>Halles</strong> (Markthalle) für regionale Produkte.</li>
-        </ul></div></div>
-      </div>
+        </ul></div></div></div>
       <div class="acc-item"><button class="acc-head">Touristinfos vor Ort<span class="pm">+</span></button>
         <div class="acc-body"><div class="inner"><ul>
           <li><strong>Office de Tourisme du Caroux</strong> (Olargues / Mons-la-Trivalle / St-Pons): Wander- &amp; Aktivinfos fürs Mittel-Tal.</li>
           <li><strong>Tourismusbüro Béziers Méditerranée:</strong> Stadt, Canal du Midi &amp; Orb-Aquädukt.</li>
           <li>Naturpark <strong>Haut-Languedoc</strong>: Karten zu Gorges, Mont Caroux und der Passa Païs.</li>
           <li>Schließtage beachten: viele Büros 1. Mai sowie 1./11. November zu, Nebensaison oft nur Di–Sa.</li>
-        </ul></div></div>
-      </div>
+        </ul></div></div></div>
     </div>
   </div>
 </section>
@@ -362,63 +285,126 @@
 <footer>
   <div class="wrap">
     <p class="quote">„In seinen Fluten spiegelt sich das Languedoc — Schiefer, Wein und ein Hauch Mittelmeer."</p>
-    <p class="small">Privater Reiseführer · Der Orb (Hérault, Okzitanien). Fotos: Wikimedia Commons (u. a. Christian Ferrer, Fagairolles 34, TouN), Lizenz CC&nbsp;BY-SA. Bei fehlender Internetverbindung können einzelne Bilder ausbleiben.</p>
+    <p class="small">Privater Reiseführer · Der Orb (Hérault, Okzitanien). Fotos: Wikimedia Commons (CC&nbsp;BY-SA, u. a. Christian Ferrer, Fagairolles 34, TouN); wo ein Foto nicht lädt, erscheint eine eingebettete Illustration.</p>
   </div>
 </footer>
 
 <script>
-const PIX={
- "Roquebrun-Vue%20Ensemble-01.JPG":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Roquebrun-Vue_Ensemble-01.JPG/900px-Roquebrun-Vue_Ensemble-01.JPG",
- "Olargues%20vue%20generale.JPG":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Olargues_vue_generale.JPG/900px-Olargues_vue_generale.JPG",
- "Gorges%20d%27H%C3%A9ric%20Gouffre%20Cerisier.JPG":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Gorges_d%27H%C3%A9ric_Gouffre_Cerisier.JPG/900px-Gorges_d%27H%C3%A9ric_Gouffre_Cerisier.JPG",
- "Caroux%20mouflon.JPG":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Caroux_mouflon.JPG/900px-Caroux_mouflon.JPG",
- "Mazet%20in%20vineyards.%20Cessenon-sur-Orb%2002.jpg":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Mazet_in_vineyards._Cessenon-sur-Orb_02.jpg/900px-Mazet_in_vineyards._Cessenon-sur-Orb_02.jpg",
- "Pont%20Vieux%20et%20Cath%C3%A9drale%20Saint-Nazaire.jpg":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Pont_Vieux_et_Cath%C3%A9drale_Saint-Nazaire.jpg/900px-Pont_Vieux_et_Cath%C3%A9drale_Saint-Nazaire.jpg",
- "Roquebrun%20and%20Orb%20River%20cf02.jpg":"https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Roquebrun_and_Orb_River_cf02.jpg/900px-Roquebrun_and_Orb_River_cf02.jpg",
- "Valras-Plage%20port.JPG":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Valras-Plage_port.JPG/900px-Valras-Plage_port.JPG"
+/* ---- embedded SVG scene illustrations (no external assets) ---- */
+function scene(t){
+  const S='preserveAspectRatio="xMidYMid slice"';
+  const open=`<svg class="scene" viewBox="0 0 400 180" ${S} xmlns="http://www.w3.org/2000/svg" aria-hidden="true">`;
+  switch(t){
+    case 'village': return open+`
+      <rect width="400" height="180" fill="#dbe6df"/>
+      <path d="M0,92 Q110,55 220,82 T400,72 V180 H0 Z" fill="#aeb87d"/>
+      <path d="M55,180 C120,66 280,66 345,180 Z" fill="#84934f"/>
+      <g>
+        <rect x="138" y="106" width="18" height="20" fill="#e7d6b6"/><polygon points="138,106 147,95 156,106" fill="#bd4f2a"/>
+        <rect x="160" y="98" width="22" height="28" fill="#efe0c2"/><polygon points="160,98 171,84 182,98" fill="#9a3d1f"/>
+        <rect x="186" y="103" width="19" height="23" fill="#e3d2af"/><polygon points="186,103 195,91 205,103" fill="#bd4f2a"/>
+        <rect x="210" y="82" width="14" height="44" fill="#cdb78f"/><polygon points="210,82 217,71 224,82" fill="#7d5436"/>
+      </g>
+      <path d="M0,168 Q120,150 210,166 T400,160 V180 H0 Z" fill="#2f8a7e"/></svg>`;
+    case 'cathedral': return open+`
+      <rect width="400" height="180" fill="#dfe3d2"/>
+      <path d="M0,74 Q150,58 400,70 V120 H0 Z" fill="#aeb87d"/>
+      <g fill="#dcc9a4" stroke="#b39b72" stroke-width="1">
+        <rect x="162" y="56" width="72" height="66"/>
+        <rect x="150" y="76" width="13" height="46"/><rect x="232" y="76" width="13" height="46"/>
+        <polygon points="162,56 198,26 234,56" fill="#9a3d1f"/>
+        <polygon points="150,76 156,62 163,76" fill="#7d5436"/><polygon points="232,76 239,62 245,76" fill="#7d5436"/>
+      </g>
+      <rect x="0" y="138" width="400" height="42" fill="#2f7e84"/>
+      <g><rect x="36" y="120" width="328" height="14" fill="#c7b186"/>
+        <path d="M70,134 a18,18 0 0,1 36,0 Z" fill="#2f7e84"/><path d="M150,134 a18,18 0 0,1 36,0 Z" fill="#2f7e84"/>
+        <path d="M230,134 a18,18 0 0,1 36,0 Z" fill="#2f7e84"/><path d="M310,134 a18,18 0 0,1 36,0 Z" fill="#2f7e84"/></g></svg>`;
+    case 'gorge': return open+`
+      <rect width="400" height="180" fill="#cfdbd6"/>
+      <path d="M0,0 H175 L120,70 L150,120 L92,180 H0 Z" fill="#6f6149"/>
+      <path d="M400,0 H228 L282,58 L250,120 L320,180 H400 Z" fill="#7d6c52"/>
+      <path d="M183,40 Q193,110 192,150 L208,150 Q208,110 217,40 Z" fill="#bfe3dc" opacity=".85"/>
+      <ellipse cx="200" cy="160" rx="78" ry="17" fill="#2f9e90"/>
+      <ellipse cx="200" cy="157" rx="52" ry="10" fill="#56bcad"/></svg>`;
+    case 'mountain': return open+`
+      <rect width="400" height="180" fill="#e6ddc8"/>
+      <circle cx="322" cy="46" r="20" fill="#e9b44a"/>
+      <path d="M0,180 L80,66 L150,140 L222,48 L300,140 L360,90 L400,150 V180 Z" fill="#9aa86a"/>
+      <path d="M0,180 L70,108 L142,160 L212,98 L292,164 L360,118 L400,158 V180 Z" fill="#6f7e44"/>
+      <path d="M80,66 L66,90 L96,90 Z M222,48 L206,76 L240,76 Z" fill="#f1ead8"/></svg>`;
+    case 'vineyard': return open+`
+      <rect width="400" height="180" fill="#e7dcc4"/>
+      <circle cx="332" cy="42" r="18" fill="#e9b44a"/>
+      <path d="M0,82 Q120,55 220,74 T400,66 V180 H0 Z" fill="#9aa86a"/>
+      <path d="M0,112 Q150,96 400,114 V180 H0 Z" fill="#7e8c4c"/>
+      <g stroke="#566532" stroke-width="3">
+        <line x1="22" y1="180" x2="60" y2="122"/><line x1="82" y1="180" x2="116" y2="124"/>
+        <line x1="142" y1="180" x2="172" y2="126"/><line x1="202" y1="180" x2="226" y2="128"/>
+        <line x1="262" y1="180" x2="282" y2="130"/><line x1="322" y1="180" x2="337" y2="132"/></g></svg>`;
+    case 'coast': return open+`
+      <rect width="400" height="180" fill="#dbe6e6"/>
+      <circle cx="78" cy="48" r="19" fill="#e9b44a"/>
+      <rect x="0" y="92" width="400" height="88" fill="#2c6f86"/>
+      <path d="M0,92 Q100,84 200,93 T400,92 V118 H0 Z" fill="#3f86a0"/>
+      <g stroke="#cfe6ea" stroke-width="2" fill="none" opacity=".7"><path d="M40,128 q12,-7 24,0 t24,0"/><path d="M150,138 q12,-7 24,0 t24,0"/><path d="M280,130 q12,-7 24,0 t24,0"/></g>
+      <path d="M0,158 Q120,148 400,164 V180 H0 Z" fill="#e3cf9f"/></svg>`;
+    case 'river': default: return open+`
+      <rect width="400" height="180" fill="#e3ddc7"/>
+      <path d="M0,62 Q120,40 240,70 T400,60 V180 H0 Z" fill="#84934f"/>
+      <path d="M64,0 C84,60 36,92 116,122 C186,146 146,170 214,180 L300,180 C238,166 280,140 208,118 C150,98 198,55 148,0 Z" fill="#2f8a7e"/>
+      <g transform="translate(150,126)"><ellipse cx="0" cy="0" rx="26" ry="7" fill="#9a3d1f"/><ellipse cx="0" cy="-2" rx="20" ry="4" fill="#bd4f2a"/><circle cx="2" cy="-8" r="4" fill="#3a2f25"/><line x1="-6" y1="-11" x2="15" y2="2" stroke="#7d5436" stroke-width="2"/></g></svg>`;
+  }
+}
+
+const FP="https://commons.wikimedia.org/wiki/Special:FilePath/";
+const PHOTO={
+ "Olargues":"Olargues%20vue%20generale.JPG",
+ "Roquebrun":"Roquebrun-Vue%20Ensemble-01.JPG",
+ "Gorges d'Héric":"Gorges%20d%27H%C3%A9ric%20Gouffre%20Cerisier.JPG",
+ "Mont Caroux":"Caroux%20mouflon.JPG",
+ "Saint-Chinian":"Mazet%20in%20vineyards.%20Cessenon-sur-Orb%2002.jpg",
+ "Gouffre du Cerisier":"Gorges%20d%27H%C3%A9ric%20Gouffre%20Cerisier.JPG",
+ "Béziers":"Pont%20Vieux%20et%20Cath%C3%A9drale%20Saint-Nazaire.jpg",
+ "Valras-Plage":"Valras-Plage%20port.JPG"
 };
-const img=(file)=>PIX[file]||"";
+const STOPPHOTO={
+ olargues:"Olargues%20vue%20generale.JPG",
+ roquebrun:"Roquebrun-Vue%20Ensemble-01.JPG",
+ cessenon:"Mazet%20in%20vineyards.%20Cessenon-sur-Orb%2002.jpg",
+ beziers:"Pont%20Vieux%20et%20Cath%C3%A9drale%20Saint-Nazaire.jpg"
+};
+function photoTag(name,w){const f=PHOTO[name];return f?'<img class="photo" alt="'+name+'" loading="lazy" src="'+FP+f+'?width='+(w||900)+'" onerror="this.remove()">':'';}
 
 const stops={
-  quelle:{badge:"Oberlauf",title:"Quelle · Monts d'Orb",km:"km 0 · ~820 m Höhe",img:"Roquebrun%20and%20Orb%20River%20cf02.jpg",
-    text:"Der Orb entspringt am Fuß der Monts d'Orb im Massif Central, am Rand der Cevennen. Schiefergrau und schmal stürzt er durch karge Hochlandschaft, bevor er sich nach Süden zur Mittelmeerwelt durchschlägt."},
-  bedarieux:{badge:"Oberes Tal",title:"Bédarieux & Lunas",km:"km ~35",img:"Mazet%20in%20vineyards.%20Cessenon-sur-Orb%2002.jpg",
-    text:"Bédarieux am Fuß der Berge ist ein guter Stützpunkt und Start des Passa-Païs-Radwegs. Nahebei grenzt das Château de Lunas mit seinem Restaurant direkt an den jadefarbenen Fluss — hier münden Gravezon und Nize in den Orb."},
-  olargues:{badge:"Vallée de l'Orb",title:"Olargues & Massif du Caroux",km:"km ~65",img:"Olargues%20vue%20generale.JPG",
-    text:"Olargues — eines der „schönsten Dörfer Frankreichs“ — thront auf einem Felssporn, der alte Burgturm dient heute als Glockenturm. Über den Jaur (der gleich darauf in den Orb mündet) führt der Pont du Diable. Direkt nördlich öffnen sich die Gorges d'Héric im Caroux."},
-  roquebrun:{badge:"Vallée de l'Orb",title:"Roquebrun",km:"km ~85",img:"Roquebrun-Vue%20Ensemble-01.JPG",
-    text:"Das „kleine Nizza des Languedoc“ schmiegt sich in eine Flussschleife. Dank Südlage blühen hier Mimosen und Orangen schon im Winter; ein mediterraner Garten und die karolingische Turmruine krönen den Hang. Flussstrand und klassischer Kanu-Startpunkt."},
-  cessenon:{badge:"Unteres Tal",title:"Cessenon-sur-Orb",km:"km ~100",img:"Mazet%20in%20vineyards.%20Cessenon-sur-Orb%2002.jpg",
-    text:"Der Fluss wird ruhiger und breiter, Weinberge übernehmen. Cessenon ist ein entspanntes Winzerdorf am Wasser, idealer Ausgangspunkt für Saint-Chinian und gemütliches Paddeln am Übergang vom Bergland zur Ebene."},
-  beziers:{badge:"Mündung",title:"Béziers & das Meer",km:"km ~120–136",img:"Pont%20Vieux%20et%20Cath%C3%A9drale%20Saint-Nazaire.jpg",
-    text:"In Béziers überquert der Canal du Midi den Orb über ein ~240 m langes Aquädukt — gleich neben den neun Schleusen von Fonseranes. Hoch über der Orb-Ebene wacht die Kathedrale Saint-Nazaire. Wenige Kilometer weiter erreicht der Fluss bei Valras-Plage das Mittelmeer."}
+  quelle:{badge:"Oberlauf",title:"Quelle · Monts d'Orb",km:"km 0 · ~820 m Höhe",scene:"mountain",text:"Der Orb entspringt am Fuß der Monts d'Orb im Massif Central, am Rand der Cevennen. Schiefergrau und schmal stürzt er durch karge Hochlandschaft, bevor er sich nach Süden zur Mittelmeerwelt durchschlägt."},
+  bedarieux:{badge:"Oberes Tal",title:"Bédarieux & Lunas",km:"km ~35",scene:"river",text:"Bédarieux am Fuß der Berge ist ein guter Stützpunkt und Start des Passa-Païs-Radwegs. Nahebei grenzt das Château de Lunas mit seinem Restaurant direkt an den jadefarbenen Fluss — hier münden Gravezon und Nize in den Orb."},
+  olargues:{badge:"Vallée de l'Orb",title:"Olargues & Massif du Caroux",km:"km ~65",scene:"village",text:"Olargues — eines der „schönsten Dörfer Frankreichs“ — thront auf einem Felssporn, der alte Burgturm dient heute als Glockenturm. Über den Jaur (der gleich darauf in den Orb mündet) führt der Pont du Diable. Direkt nördlich öffnen sich die Gorges d'Héric im Caroux."},
+  roquebrun:{badge:"Vallée de l'Orb",title:"Roquebrun",km:"km ~85",scene:"village",text:"Das „kleine Nizza des Languedoc“ schmiegt sich in eine Flussschleife. Dank Südlage blühen hier Mimosen und Orangen schon im Winter; ein mediterraner Garten und die karolingische Turmruine krönen den Hang. Flussstrand und klassischer Kanu-Startpunkt."},
+  cessenon:{badge:"Unteres Tal",title:"Cessenon-sur-Orb",km:"km ~100",scene:"vineyard",text:"Der Fluss wird ruhiger und breiter, Weinberge übernehmen. Cessenon ist ein entspanntes Winzerdorf am Wasser, idealer Ausgangspunkt für Saint-Chinian und gemütliches Paddeln am Übergang vom Bergland zur Ebene."},
+  beziers:{badge:"Mündung",title:"Béziers & das Meer",km:"km ~120–136",scene:"cathedral",text:"In Béziers überquert der Canal du Midi den Orb über ein ~240 m langes Aquädukt — gleich neben den neun Schleusen von Fonseranes. Hoch über der Orb-Ebene wacht die Kathedrale Saint-Nazaire. Wenige Kilometer weiter erreicht der Fluss bei Valras-Plage das Mittelmeer."}
 };
 
 const cards=[
-  {cat:"dorf",name:"Olargues",title:"Mittelalterliches Labyrinth",img:"Olargues%20vue%20generale.JPG",text:"Plus-Beaux-Villages-Dorf mit Burgturm-Glockenturm, Teufelsbrücke und Gassen wie eine Schatzkarte.",meta:"Vallée de l'Orb"},
-  {cat:"dorf",name:"Roquebrun",title:"Le petit Nice",img:"Roquebrun-Vue%20Ensemble-01.JPG",text:"Südhang-Idyll mit Mikroklima, mediterranem Garten und Flussstrand unterhalb der Turmruine.",meta:"Mikroklima · Baden"},
-  {cat:"natur",name:"Gorges d'Héric",title:"Granitschlucht im Caroux",img:"Gorges%20d%27H%C3%A9ric%20Gouffre%20Cerisier.JPG",text:"Nur zu Fuß erreichbar, mit kristallklaren Badegumpen wie dem Gouffre du Cerisier und dem Steinhütten-Weiler Héric.",meta:"~3 Std. hin & zurück"},
-  {cat:"natur",name:"Mont Caroux",title:"Die „liegende Frau“",img:"Caroux%20mouflon.JPG",text:"Orientierungstisch auf ~1100 m mit weitem Blick über den Naturpark; im Massiv leben freilebende Mufflons.",meta:"Aussichtspunkt"},
-  {cat:"natur",name:"Gorges de Colombières",title:"Die wildere Schwester",text:"Ursprünglicher und einsamer als die Héric-Schlucht — sportliche Tour für geübte Wanderer.",meta:"~13 km · anspruchsvoll"},
-  {cat:"natur",name:"Pont de Tarassac",title:"Hängebrücken-Blick",text:"Kurz vor der Brücke anhalten: einer der schönsten Blicke aufs Tal, wo der Jaur den Orb trifft.",meta:"Fotostopp an der D14"},
-  {cat:"wein",name:"Saint-Chinian",title:"AOC-Weinland",img:"Mazet%20in%20vineyards.%20Cessenon-sur-Orb%2002.jpg",text:"Kräftige Languedoc-Rotweine von Schieferhängen; die Cuvées aus Roquebrun und Berlou gelten als die feinsten.",meta:"AOC · Verkostung"},
-  {cat:"wein",name:"Château de Lunas",title:"Tafeln am Fluss",text:"Feinschmecker-Restaurant im Schloss, die Terrasse grenzt an den jadefarbenen Orb. Nahe Lodève.",meta:"Genuss · Oberes Tal"},
-  {cat:"wasser",name:"Kanu bei Roquebrun",title:"Paddeln auf dem Orb",text:"Im Frühjahr Wildwasser, im Sommer entspannt — mit obligatem Uferpicknick. Verleiher vor Ort.",meta:"Frühjahr bis Sommer"},
-  {cat:"wasser",name:"Gouffre du Cerisier",title:"Naturpool",img:"Gorges%20d%27H%C3%A9ric%20Gouffre%20Cerisier.JPG",text:"Gut zugänglicher Felspool in den Gorges d'Héric — glasklar, schattige Plätze, an Sonnentagen voll.",meta:"Baden · unbewacht"},
-  {cat:"dorf",name:"Béziers",title:"Stadt am Canal du Midi",img:"Pont%20Vieux%20et%20Cath%C3%A9drale%20Saint-Nazaire.jpg",text:"Kathedrale Saint-Nazaire über der Orb-Ebene, die neun Schleusen von Fonseranes und das Orb-Aquädukt.",meta:"Unterlauf · UNESCO-Kanal"},
-  {cat:"wasser",name:"Valras-Plage",title:"Wo der Orb endet",img:"Valras-Plage%20port.JPG",text:"Hafen und langer Sandstrand an der Mündung — der entspannte Abschluss einer Reise vom Bergland ans Meer.",meta:"Mündung · Strand"}
+  {cat:"dorf",name:"Olargues",title:"Mittelalterliches Labyrinth",scene:"village",text:"Plus-Beaux-Villages-Dorf mit Burgturm-Glockenturm, Teufelsbrücke und Gassen wie eine Schatzkarte.",meta:"Vallée de l'Orb"},
+  {cat:"dorf",name:"Roquebrun",title:"Le petit Nice",scene:"village",text:"Südhang-Idyll mit Mikroklima, mediterranem Garten und Flussstrand unterhalb der Turmruine.",meta:"Mikroklima · Baden"},
+  {cat:"natur",name:"Gorges d'Héric",title:"Granitschlucht im Caroux",scene:"gorge",text:"Nur zu Fuß erreichbar, mit kristallklaren Badegumpen wie dem Gouffre du Cerisier und dem Steinhütten-Weiler Héric.",meta:"~3 Std. hin & zurück"},
+  {cat:"natur",name:"Mont Caroux",title:"Die „liegende Frau“",scene:"mountain",text:"Orientierungstisch auf ~1100 m mit weitem Blick über den Naturpark; im Massiv leben freilebende Mufflons.",meta:"Aussichtspunkt"},
+  {cat:"natur",name:"Gorges de Colombières",title:"Die wildere Schwester",scene:"gorge",text:"Ursprünglicher und einsamer als die Héric-Schlucht — sportliche Tour für geübte Wanderer.",meta:"~13 km · anspruchsvoll"},
+  {cat:"natur",name:"Pont de Tarassac",title:"Hängebrücken-Blick",scene:"river",text:"Kurz vor der Brücke anhalten: einer der schönsten Blicke aufs Tal, wo der Jaur den Orb trifft.",meta:"Fotostopp an der D14"},
+  {cat:"wein",name:"Saint-Chinian",title:"AOC-Weinland",scene:"vineyard",text:"Kräftige Languedoc-Rotweine von Schieferhängen; die Cuvées aus Roquebrun und Berlou gelten als die feinsten.",meta:"AOC · Verkostung"},
+  {cat:"wein",name:"Château de Lunas",title:"Tafeln am Fluss",scene:"river",text:"Feinschmecker-Restaurant im Schloss, die Terrasse grenzt an den jadefarbenen Orb. Nahe Lodève.",meta:"Genuss · Oberes Tal"},
+  {cat:"wasser",name:"Kanu bei Roquebrun",title:"Paddeln auf dem Orb",scene:"river",text:"Im Frühjahr Wildwasser, im Sommer entspannt — mit obligatem Uferpicknick. Verleiher vor Ort.",meta:"Frühjahr bis Sommer"},
+  {cat:"wasser",name:"Gouffre du Cerisier",title:"Naturpool",scene:"gorge",text:"Gut zugänglicher Felspool in den Gorges d'Héric — glasklar, schattige Plätze, an Sonnentagen voll.",meta:"Baden · unbewacht"},
+  {cat:"dorf",name:"Béziers",title:"Stadt am Canal du Midi",scene:"cathedral",text:"Kathedrale Saint-Nazaire über der Orb-Ebene, die neun Schleusen von Fonseranes und das Orb-Aquädukt.",meta:"Unterlauf · UNESCO-Kanal"},
+  {cat:"wasser",name:"Valras-Plage",title:"Wo der Orb endet",scene:"coast",text:"Hafen und langer Sandstrand an der Mündung — der entspannte Abschluss einer Reise vom Bergland ans Meer.",meta:"Mündung · Strand"}
 ];
 
-/* stop card */
 const stopCard=document.getElementById('stopCard');
 function renderStop(key){
   const s=stops[key];
-  const media=s.img?'<div class="card-media" style="height:160px"><img alt="'+s.title+'" src="'+img(s.img)+'" onerror="this.parentElement.style.display=\'none\'"></div>':'';
-  stopCard.innerHTML=media+'<div class="sc-pad">'+
-    '<span class="badge">'+s.badge+'</span>'+
-    '<h3>'+s.title+'</h3><div class="km">'+s.km+'</div>'+
-    '<p>'+s.text+'</p>'+
-    '<div class="stop-hint">Tippe auf einen anderen Punkt auf der Karte →</div></div>';
+  stopCard.innerHTML='<div class="sc-media">'+scene(s.scene)+(STOPPHOTO[key]?'<img class="photo" alt="'+s.title+'" src="'+FP+STOPPHOTO[key]+'?width=700" onerror="this.remove()">':'')+'</div><div class="sc-pad">'+
+    '<span class="badge">'+s.badge+'</span><h3>'+s.title+'</h3><div class="km">'+s.km+'</div>'+
+    '<p>'+s.text+'</p><div class="stop-hint">Tippe auf einen anderen Punkt auf der Karte →</div></div>';
 }
 renderStop('quelle');
 document.querySelectorAll('.river-svg .stop').forEach(g=>{
@@ -427,7 +413,6 @@ document.querySelectorAll('.river-svg .stop').forEach(g=>{
   g.addEventListener('keypress',e=>{if(e.key==='Enter'||e.key===' ')act();});
 });
 
-/* highlight cards */
 const catLabel={natur:"Natur",dorf:"Dörfer & Kultur",wein:"Wein & Genuss",wasser:"Wasser & Baden"};
 const cardsEl=document.getElementById('cards');
 function renderCards(filter){
@@ -435,11 +420,8 @@ function renderCards(filter){
   cards.filter(c=>filter==='all'||c.cat===filter).forEach(c=>{
     const d=document.createElement('div');
     d.className='card cat-'+c.cat;
-    const media=c.img
-      ?'<div class="card-media"><img alt="'+c.title+'" loading="lazy" src="'+img(c.img)+'" onerror="this.remove()"></div>'
-      :'<div class="card-media"><span class="ph">'+c.name+'</span></div>';
-    d.innerHTML=media+'<div class="card-body"><div class="tag">'+catLabel[c.cat]+' · '+c.name+'</div>'+
-      '<h3>'+c.title+'</h3><p>'+c.text+'</p><div class="meta">'+c.meta+'</div></div>';
+    d.innerHTML='<div class="card-media">'+scene(c.scene)+photoTag(c.name,800)+'<span class="ph">'+c.name+'</span></div>'+
+      '<div class="card-body"><div class="tag">'+catLabel[c.cat]+' · '+c.name+'</div><h3>'+c.title+'</h3><p>'+c.text+'</p><div class="meta">'+c.meta+'</div></div>';
     cardsEl.appendChild(d);
   });
 }
@@ -448,16 +430,12 @@ document.querySelectorAll('.filter-btn').forEach(b=>{
   b.addEventListener('click',()=>{document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderCards(b.dataset.cat);});
 });
 
-/* accordion */
 document.querySelectorAll('.acc-head').forEach(h=>{
-  h.addEventListener('click',()=>{
-    const item=h.parentElement,body=h.nextElementSibling;
+  h.addEventListener('click',()=>{const item=h.parentElement,body=h.nextElementSibling;
     if(item.classList.contains('open')){item.classList.remove('open');body.style.maxHeight=null;}
-    else{item.classList.add('open');body.style.maxHeight=body.scrollHeight+'px';}
-  });
+    else{item.classList.add('open');body.style.maxHeight=body.scrollHeight+'px';}});
 });
 
-/* reveal */
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
